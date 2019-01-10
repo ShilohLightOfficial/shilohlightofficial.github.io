@@ -65,14 +65,14 @@ function draw()
 
 }
 
-function touchStarted(){
-    
-    swipeStartTime = frameCount;
-    if (touches[0] != null){
-        swipeStartPos.x = touches[0].x;
-        swipeStartPos.y = touches[0].y;
-    }
-}
+//function touchStarted(){
+//    
+//    swipeStartTime = frameCount;
+//    if (touches[0] != null){
+//        swipeStartPos.x = touches[0].x;
+//        swipeStartPos.y = touches[0].y;
+//    }
+//}
 //
 //function mousePressed(){
 //    
@@ -82,20 +82,45 @@ function touchStarted(){
 //    swipeStartPos.y = mouseY;
 //}
 
-function touchEnded() {
+//function touchEnded() {
+//    
+//    if (touches[0] != null){
+//        swipeEndPos.x = touches[0].x;
+//        swipeEndPos.y = touches[0].y;
+//    }
+//    
+//    if (dist(swipeStartPos.x,swipeStartPos.y, swipeEndPos.x,swipeEndPos.y) > 10) {
+//        
+//        swipeEndTime = frameCount;
+//        
+//        if ((swipeEndTime - swipeStartTime) < 15){
+//            
+//            slideNumber = ((slideNumber+1)<=(totalImages-1)) ? slideNumber+=1 : 0; //shorthand for conditional assignment
+//
+//
+//            //console.log(slideNumber);
+//
+//            //publish the number to everyone.
+//            dataServer.publish(
+//            {
+//                channel: channelName,
+//                message: 
+//                {
+//                slide: slideNumber      
+//                }
+//            });
+//            
+//        } 
+//        
+//    } else {
+//        
+//        console.log("Not Long Enough swipe");
+//    }
+//}
+function deviceTurned() {
     
-    if (touches[0] != null){
-        swipeEndPos.x = touches[0].x;
-        swipeEndPos.y = touches[0].y;
-    }
     
-    if (dist(swipeStartPos.x,swipeStartPos.y, swipeEndPos.x,swipeEndPos.y) > 10) {
-        
-        swipeEndTime = frameCount;
-        
-        if ((swipeEndTime - swipeStartTime) < 15){
-            
-            slideNumber = ((slideNumber+1)<=(totalImages-1)) ? slideNumber+=1 : 0; //shorthand for conditional assignment
+    slideNumber = ((slideNumber+1)<=(totalImages-1)) ? slideNumber+=1 : 0; //shorthand for conditional assignment
 
 
             //console.log(slideNumber);
@@ -109,13 +134,6 @@ function touchEnded() {
                 slide: slideNumber      
                 }
             });
-            
-        } 
-        
-    } else {
-        
-        console.log("Not Long Enough swipe");
-    }
 }
 
 //function mouseReleased() {
