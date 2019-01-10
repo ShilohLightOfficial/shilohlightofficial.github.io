@@ -68,9 +68,10 @@ function draw()
 function touchStarted(){
     
     swipeStartTime = frameCount;
-    
-    swipeStartPos.x = touches[0].x;
-    swipeStartPos.y = touches[0].y;
+    if (touches[0] != null){
+        swipeStartPos.x = touches[0].x;
+        swipeStartPos.y = touches[0].y;
+    }
 }
 //
 //function mousePressed(){
@@ -83,14 +84,16 @@ function touchStarted(){
 
 function touchEnded() {
     
-    swipeEndPos.x = touches[0].x;
-    swipeEndPos.y = touches[0].y;
+    if (touches[0] != null){
+        swipeEndPos.x = touches[0].x;
+        swipeEndPos.y = touches[0].y;
+    }
     
-    if (dist(swipeStartPos.x,swipeStartPos.y, swipeEndPos.x,swipeEndPos.y) > 5) {
+    if (dist(swipeStartPos.x,swipeStartPos.y, swipeEndPos.x,swipeEndPos.y) > 10) {
         
         swipeEndTime = frameCount;
         
-        if ((swipeEndTime - swipeStartTime) < 5){
+        if ((swipeEndTime - swipeStartTime) < 15){
             
             slideNumber = ((slideNumber+1)<=(totalImages-1)) ? slideNumber+=1 : 0; //shorthand for conditional assignment
 
